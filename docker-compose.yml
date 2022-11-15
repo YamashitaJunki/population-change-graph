@@ -1,0 +1,11 @@
+version: "3.15"
+services:
+  nextjs_web:
+    volumes:
+      - ./:/var/workspace/:cached
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+      - 9229:9229
