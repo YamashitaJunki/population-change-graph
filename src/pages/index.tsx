@@ -52,7 +52,7 @@ const PopulationChangeGraph = ({
   return (
     <div className={styles.container}>
       <Head>
-        <title>aaa</title>
+        <title>都道府県別 総人口推移グラフ</title>
       </Head>
       <header className={styles.header}>
         <h1 className={styles.title}>
