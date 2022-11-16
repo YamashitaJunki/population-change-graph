@@ -4,7 +4,7 @@
 
 # Deploy
 
-https://feature-2.d3hrx15nogqyqc.amplifyapp.com/
+https://main.d3hrx15nogqyqc.amplifyapp.com/
 
 # DEMO
 
