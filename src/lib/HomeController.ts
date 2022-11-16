@@ -9,6 +9,10 @@ export type Datasets = {
     data: Array<number>;
     borderColor: string;
   }>;
+  options: {
+    responsive: boolean;
+    maintainAspectRatio: boolean;
+  };
 };
 
 export type ExecuteOut = Datasets;
@@ -58,9 +62,14 @@ export class HomeController {
         return data;
       }
     );
+    const options = {
+      responsive: true,
+      maintainAspectRatio: false,
+    };
     return {
       prefNameList: prefNameList,
       unfilteredDatasets: unfilteredDatasets,
+      options: options,
     };
   }
 }
