@@ -2,10 +2,11 @@ import { GetServerSideProps } from "next";
 import styles from "../styles/Home.module.css";
 import { Line } from "react-chartjs-2";
 import { HomeController, Datasets } from "../lib/HomeController";
-import { PrefCheckBox } from "../components/PrefCheckBox";
 import { useState } from "react";
 import Head from "next/head";
 import "chartjs-plugin-colorschemes";
+import PrefListPC from "@/components/PrefListPC";
+import PrefListSP from "@/components/PrefListSP";
 
 type GetServerSidePropsOut = {
   props: {
@@ -58,12 +59,16 @@ const PopulationChangeGraph = ({
         </h1>
       </header>
       <main className={styles.main}>
-        <h1>都道府県</h1>
-        <PrefCheckBox
+        <PrefListPC
           prefNameList={list.prefNameList}
           prefList={prefList}
           selectedPref={selectedPref}
-        ></PrefCheckBox>
+        ></PrefListPC>
+        <PrefListSP
+          prefNameList={list.prefNameList}
+          prefList={prefList}
+          selectedPref={selectedPref}
+        ></PrefListSP>
         <h1>人口推移</h1>
         <div className={styles.graph}>
           <Line data={data} options={list.options} />

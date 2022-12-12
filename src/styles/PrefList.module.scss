@@ -1,0 +1,15 @@
+@use "../styles/variables" as v;
+
+.mobile {
+  display: none;
+  @include v.mq(md) {
+    display: block;
+  }
+}
+
+.pc {
+  display: block;
+  @include v.mq(md) {
+    display: none;
+  }
+}
