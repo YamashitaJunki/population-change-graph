@@ -1,0 +1,53 @@
+.box {
+  padding: 0.3em 0.1em;
+  display: inline-flex;
+  margin: 0.3em;
+  color: #2c2c2f;
+  background-color: #00e1ff;
+  border-radius: 20px;
+}
+.box:hover {
+  color: rgb(88, 88, 88);
+  background: #c5ae69;
+  cursor: pointer;
+}
+
+.pref {
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgb(69, 69, 69, 0.7);
+}
+
+.pref-check {
+  width: 300px;
+  height: 50px;
+  background-color: #414141;
+  margin: 0 auto;
+  position: relative;
+  opacity: 0;
+  transform: translate(0, 55%);
+  z-index: 3;
+  cursor: pointer;
+}
+
+.pref-button {
+  width: 300px;
+  height: 50px;
+  background-color: #00b7ff;
+  transition: 200ms;
+  margin: 0 auto;
+  transform: translate(0, -50%);
+  border-radius: 20px;
+}
+
+.check input:checked ~ .pref {
+  visibility: visible;
+  opacity: 1;
+}
+.check input:checked ~ .pref-button {
+  background-color: #0e646f;
+  transition: 200ms;
+}
