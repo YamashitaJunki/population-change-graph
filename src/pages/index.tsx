@@ -1,14 +1,11 @@
 import { GetServerSideProps } from "next";
 import styles from "../styles/Home.module.css";
 import { Line } from "react-chartjs-2";
-import Chart from "chart.js/auto";
-import { CategoryScale, ChartData, ScatterDataPoint } from "chart.js";
 import { HomeController, Datasets } from "../lib/HomeController";
 import { PrefCheckBox } from "../components/PrefCheckBox";
 import { useState } from "react";
 import Head from "next/head";
-
-Chart.register(CategoryScale);
+import "chartjs-plugin-colorschemes";
 
 type GetServerSidePropsOut = {
   props: {
@@ -69,16 +66,7 @@ const PopulationChangeGraph = ({
         ></PrefCheckBox>
         <h1>人口推移</h1>
         <div className={styles.graph}>
-          <Line
-            data={
-              data as ChartData<
-                "line",
-                (number | ScatterDataPoint | null)[],
-                number
-              >
-            }
-            options={list.options}
-          />
+          <Line data={data} options={list.options} />
         </div>
       </main>
     </div>
