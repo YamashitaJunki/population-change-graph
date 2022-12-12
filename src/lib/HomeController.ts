@@ -1,5 +1,4 @@
 import { getPrefListAndValueChangeList } from "./getPrefListAndValueChangeList";
-import { colorChartList } from "../lib/colorChartList";
 import { AppException } from "../lib/AppException";
 
 export type Datasets = {
@@ -7,11 +6,15 @@ export type Datasets = {
   unfilteredDatasets: Array<{
     label: string;
     data: Array<number>;
-    borderColor: string;
   }>;
   options: {
     responsive: boolean;
     maintainAspectRatio: boolean;
+    plugins: {
+      colorschemes: {
+        scheme: string;
+      };
+    };
   };
 };
 
@@ -52,12 +55,10 @@ export class HomeController {
     //chart.jsで使うdatasetの形に整形
     //[{"label":"○○県","data":[○○,○○,○○,,,],"borderColor":"#○○"},,,]
     const unfilteredDatasets = prefNameAndPopulationChangeList.map(
-      (prefecture, index) => {
-        const color = colorChartList();
+      (prefecture) => {
         const data = {
           label: prefecture.prefName,
           data: prefecture.valueList,
-          borderColor: color[index],
         };
         return data;
       }
@@ -65,6 +66,11 @@ export class HomeController {
     const options = {
       responsive: true,
       maintainAspectRatio: false,
+      plugins: {
+        colorschemes: {
+          scheme: "brewer.Paired12",
+        },
+      },
     };
     return {
       prefNameList: prefNameList,
