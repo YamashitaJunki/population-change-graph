@@ -15,7 +15,7 @@ https://main.d3hrx15nogqyqc.amplifyapp.com/
 
 # グラフ作成に使用したライブラリ
 
-- [chart.js@3.8.0](https://www.chartjs.org/)
+- [chart.js@2.9.4](https://www.chartjs.org/)
 
 # API
 
